@@ -52,4 +52,4 @@ npm run dev
 ```
 
 ## Live Link
-[deploy karne ke baad yahan link daalna]
+https://new-task-managers.netlify.app/
