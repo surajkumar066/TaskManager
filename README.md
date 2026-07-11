@@ -1,21 +1,55 @@
-<<<<<<< HEAD
-# React + Vite
+# Task Manager Application (Context API + useReducer)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A Task Manager app built with React's Context API and useReducer hook for global state management.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add new tasks via input field
+- Mark tasks as complete/incomplete (checkbox toggle)
+- Edit task text inline
+- Delete individual tasks
+- Clear all tasks at once
+- Live summary showing total and completed task count
+- Responsive design with hover effects and completed-task styling
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React (Vite)
+- Context API (global state)
+- useReducer (state logic)
+- Plain CSS
 
-## Expanding the Oxlint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
-=======
-# TaskManager
-TaskManager
->>>>>>> bc9ece40200c1b2233e36c45b3ec66553f1d03be
+```
+src/
+  context/
+    TaskContext.jsx     -> Context + Provider setup
+  reducer/
+    taskReducer.js       -> Action types + reducer logic
+  components/
+    TaskInput.jsx         -> Add task form
+    TaskList.jsx           -> Renders all tasks
+    TaskItem.jsx            -> Single task (edit/delete/toggle)
+    TaskSummary.jsx          -> Total/completed count + clear all
+  App.jsx
+  App.css
+```
+
+## How State Flows
+
+1. `TaskProvider` wraps the whole app and creates state via `useReducer`
+2. Any component calls `useTaskContext()` to access `state` and `dispatch`
+3. Components dispatch actions (e.g. `{ type: "ADD_TASK", payload: "..." }`)
+4. The reducer (`taskReducer.js`) processes the action and returns new state
+5. All components re-render automatically with updated state — no prop drilling
+
+## How to Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Live Link
+[deploy karne ke baad yahan link daalna]
